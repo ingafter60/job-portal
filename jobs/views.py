@@ -1,9 +1,9 @@
 # jobs/views.py
 
 from django.shortcuts import render
+from django.views.generic import TemplateView
 
-# Create your views here.
 
-def Home(request):
+class HomeView(TemplateView):
 
-	return render(request, 'jobs/home.html')
+	template_name = 'jobs/index.html'
