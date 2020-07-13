@@ -67,7 +67,9 @@ class Account(AbstractBaseUser, PermissionsMixin):
 	'''date join will be automatically added'''
 	date_joined = models.DateTimeField(_('date joined'), auto_now_add=True)
 	'''a new user needs to be activate before it can login'''
-	is_active = models.BooleanField(_('is_staff'), default=False)
+	is_active = models.BooleanField(_('active'), default=True)
+	'''to verify if a new user to be a staff'''
+	is_staff = models.BooleanField(_('is_staff'), default=False)
 	'''to verify if a new user to be an employee'''
 	is_employee = models.BooleanField(default=False)
 	'''to verify if a new user to be an employer'''
