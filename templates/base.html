@@ -1,0 +1,24 @@
+<!-- templates/base.html -->
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <!-- HEAD -->
+    {% include 'partials/head.html' %}
+</head>
+<body>
+    <!-- NAVBAR -->
+    {% include 'partials/navbar.html' %}
+
+    <!-- MAIN CONTENT -->
+    {% block content %}
+    {% endblock content %}
+
+    <!-- FOOTER -->
+    {% include 'partials/footer.html' %}
+    <!-- LOADER -->
+    {% include 'partials/loader.html' %}
+    <!-- SCRIPTS -->
+    {% include 'partials/scripts.html' %}
+</body>
+</html>
