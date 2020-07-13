@@ -46,6 +46,9 @@ INSTALLED_APPS = [
     'users.apps.UsersConfig',
 ]
 
+# Add the new users app to project and use the Account model
+AUTH_USER_MODEL = 'users.Account'
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
