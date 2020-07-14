@@ -207,6 +207,8 @@
         </div>
     </div>
 </section>
+
+<!--Recently Added Jobs  -->
 <section class="ftco-section bg-light">
     <div class="container">
         <div class="row justify-content-center mb-5 pb-3">
@@ -215,8 +217,8 @@
                 <h2 class="mb-4"><span>Recent</span> Jobs</h2>
             </div>
         </div>
+        <!-- job list -->
         <div class="row">
-
             {% if jobs %}
                 {% for job in jobs %}
                     <div class="col-md-12 ftco-animate">
@@ -257,25 +259,20 @@
                     <p>No jobs fount!</p>
                 </div>         
             {% endif %}      
+        </div><!-- end job list -->
 
-        </div>
+        <!-- Pagination -->
         <div class="row mt-5">
             <div class="col text-center">
                 <div class="block-27">
-                    <ul>
-                        <li><a href="#">&lt;</a></li>
-                        <li class="active"><span>1</span></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">5</a></li>
-                        <li><a href="#">&gt;</a></li>
-                    </ul>
+                    {% include './partials/pagination.html' %}
                 </div>
             </div>
-        </div>
+        </div><!-- Pagination -->
+
     </div>
-</section>
+</section><!--end Recently Added Jobs  -->
+
 <section class="ftco-section ftco-counter img" id="section-counter" style="background-image: url({% static 'images/bg_1.jpg' %});" data-stellar-background-ratio="0.5">
     <div class="container">
         <div class="row justify-content-center">

@@ -1,0 +1,25 @@
+<!-- templates/jobs/inc/pagination.html -->
+
+<ul>
+    <!-- Previous page-->
+    {% if page_object.has_previous %}
+        <li><a href="?page={{page_obj.previous_page_number}}">&lt;</a></li>
+    {% else %}    
+        <li class="disable"><span>&lt;</span></li>
+    {% endif %}<!-- end Previous page -->
+    <!-- Pages -->
+        {% for i in paginator.page_range %}
+            {% if page_obj.number == i %}    
+                <li class="active"><span>{{i}}</span></li>
+            {% else %}    
+                 <li><a href="?page={{i}}">{{i}}</a></li>
+            {% endif %}
+        {% endfor %}<!-- end Pages -->
+    <!-- Next page -->
+    {% if page_object.has_next %}
+        <li><a href="?page={{page_obj.next_page_number}}">>&lt;</a></li>
+    {% else %}    
+        <li class="disable"><span>&gt;</span></li>
+    {% endif %}<!-- end Next page -->
+</ul>
+        

@@ -20,3 +20,5 @@ class HomeView(ListView):
 	context_object_name = 'jobs'
 	'''template name to use to render the job objects'''
 	template_name = 'jobs/index.html'
+	'''add pagination by using paginate_by function'''
+	paginate_by = 1
