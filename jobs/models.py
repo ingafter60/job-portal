@@ -7,6 +7,27 @@ from job import settings
 
 # CREATE CUSTOME MODELS HERE
 
+# CATEGORY MODEL
+class Category(models.Model):
+
+	'''category title'''
+	title = models.CharField(max_length=300) 
+	'''category slug is a kind of category title https://jobportal.com/web-design
+	   but this tabel field will not be seen in admin panel
+	'''
+	slug = models.SlugField(default=None, editable=False)
+
+
+	'''displaying human readable objects as title (category title)'''
+	def __str__(self):
+		return self.title
+
+	'''offeriding save function to save category title as slug'''
+	def save(self, *args, **kwargs):
+		self.slug = slugify(self.title)
+		super(Category, self).save(*args, **kwargs)	
+
+
 # JOB MODEL
 class Job (models.Model):
 
@@ -35,7 +56,8 @@ class Job (models.Model):
 	slug = models.SlugField(default=None, editable=False)
 	'''many-to-one relationship: employer can publish 0 or Many jobs'''
 	employer = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, default=None)
-
+	'''add ONE-TO-MANY or MANY-TO-ONE relationship of the Category and Product models'''
+	category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='jobs', default=None)
 	
 	'''displaying human readable objects as title (job title)'''
 	def __str__(self):
