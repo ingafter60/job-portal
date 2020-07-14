@@ -6,7 +6,7 @@ from django.views.generic import TemplateView, ListView
 
 
 # IMPORT MODELS
-from jobs.models import Job
+from jobs.models import Job, Category
 
 # # HomeView using TemplateView
 # class HomeView(TemplateView):
@@ -22,3 +22,9 @@ class HomeView(ListView):
 	template_name = 'jobs/index.html'
 	'''add pagination by using paginate_by function'''
 	paginate_by = 1
+
+	'''define contex data for Category'''
+	def get_context_data(self, **kwargs):
+		contex = super(HomeView, self).get_context_data(**kwargs)
+		contex['categories'] = Category.objects.all()
+		return contex

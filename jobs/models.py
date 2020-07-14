@@ -27,6 +27,12 @@ class Category(models.Model):
 		self.slug = slugify(self.title)
 		super(Category, self).save(*args, **kwargs)	
 
+	'''defining job_count function to count numbers of job in each category'''
+	def job_count(self):
+		'''attache job to category based on its related_name (line:66)'''
+		# return self.jobs.all().count() * 1000	
+		return self.jobs.all().count()
+
 
 # JOB MODEL
 class Job (models.Model):
