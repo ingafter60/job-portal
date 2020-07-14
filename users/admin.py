@@ -23,6 +23,19 @@ class MyAdminAccounts(UserAdmin):
 	'''read only field - MUST be a list or tuple'''
 	readonly_fields = ['date_joined'] # <-- this tuple & this list --> ('date_joined',)
 
+	# Add A New User
+	add_fieldsets = (
+		(None, {
+			'classes':('wide',),
+			'fields':('email', 'first_name', 'last_name', 'password1', 'password2', 'is_employee', 'is_employer', 'is_active')
+		}),
+	)
+
+	# # Update User
+	fieldsets = (
+		(None, {'fields':('email', 'first_name', 'last_name', 'password')}),
+		('Permissions', {'fields':('is_staff', 'is_active', 'is_employee', 'is_employer')})
+	)
 
 # REGISTER MODELS AND NEW CLASS TO ADMIN
 admin.site.register(Account, MyAdminAccounts)	
