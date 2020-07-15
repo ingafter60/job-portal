@@ -1,4 +1,4 @@
-# jobs/urls.py
+# users/urls.py
 
 # IMPORT DJANGO MODULES
 from django.urls import path
@@ -7,9 +7,10 @@ from django.urls import path
 from .views import *
 
 # DEFINING APP ATTRIBUTE
-app_name = 'jobs'
+app_name = 'users'
 
-# DEFINING PATH
+# DEFINING URL PATH
 urlpatterns = [
-	path('', HomeView.as_view(), name='home')
+	path('register/', UserRegisterView.as_view(), name='register')
 ]
+
